@@ -3,7 +3,12 @@ const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
+
+const conn = require('./db/conn')
 const routes = require('./routes/routes')
+conn()
+
+
 
 app.use('/', routes)
 
